@@ -12,7 +12,10 @@ const char *s;
 int pos;
 
 int S(){
-    if(s[pos]=='('){
+
+    if(s[pos]=='(')
+    
+    {
         pos++; // consume '('
         if(!S()) 
         return 0;
@@ -23,7 +26,7 @@ int S(){
         pos++; 
         // consume ')'
         if(!S()) 
-        
+
         return 0;
         return 1;
     }

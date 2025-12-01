@@ -5,6 +5,18 @@
    T' -> * F T' | / F T' | ε
    F -> ( E ) | id | number
 */
+/*
+
+
+input-a + b * (c - 3)
+  output -valid
+  input -a + * c
+ouput-invalid 
+
+*/
+
+
+
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
@@ -25,11 +37,15 @@ void nextToken(){
         while(isalnum((unsigned char)buf[idx]) || buf[idx]=='_') lexeme[i++]=buf[idx++];
         lexeme[i]=0; look = TOK_ID; return;
     }
+
+
     if(isdigit((unsigned char)c)){
         while(isdigit((unsigned char)buf[idx])) lexeme[i++]=buf[idx++];
         lexeme[i]=0; look = TOK_NUM; return;
     }
     idx++;
+
+
     switch(c){
         case '+': look = TOK_PLUS; break;
         case '-': look = TOK_MINUS; break;
@@ -40,6 +56,8 @@ void nextToken(){
         default: look = TOK_ERR; break;
     }
 }
+
+
 
 int E(); int Eprime(); int T(); int Tprime(); int F();
 
@@ -52,6 +70,8 @@ int Eprime(){
     }
     return 1; // epsilon
 }
+
+
 int T(){ return F() && Tprime(); }
 int Tprime(){
     if(look==TOK_MUL || look==TOK_DIV){
@@ -61,6 +81,8 @@ int Tprime(){
     }
     return 1;
 }
+
+
 int F(){
     if(look==TOK_LP){
         nextToken();
@@ -74,6 +96,8 @@ int F(){
     }
     return 0;
 }
+
+
 
 int main(){
     if(!fgets(buf, sizeof buf, stdin)) return 0;

@@ -8,6 +8,8 @@ IDENTIFIER   "_temp"
 SYMBOL       ";"*/
 
 
+
+
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
@@ -18,13 +20,18 @@ int main(){
     if(!fgets(line, sizeof line, stdin)) return 0;
     int i=0, n=strlen(line);
     while(i<n && line[i]!='\n'){
-        if(isspace((unsigned char)line[i])){ i++; continue; }
-        if(isalpha((unsigned char)line[i]) || line[i]=='_'){
+        if(isspace((unsigned char)line[i]))
+        { i++; continue; }
+        if(isalpha((unsigned char)line[i]) || line[i]=='_')
+        {
             char lex[256]; int j=0;
             lex[j++]=line[i++];
+
             while(i<n && (isalnum((unsigned char)line[i]) || line[i]=='_')) lex[j++]=line[i++];
             lex[j]=0;
+
             printf("IDENTIFIER\t%s\n", lex);
+            
         } else if(isdigit((unsigned char)line[i])){
             char lex[256]; int j=0;
             while(i<n && isdigit((unsigned char)line[i])) lex[j++]=line[i++];

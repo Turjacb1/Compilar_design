@@ -1,6 +1,7 @@
 /* Q4: check strings of the form a^n b^n using S -> a S b | a b */
 //intput -aaabbb-valid  aabbb-invalid
 
+
 #include <stdio.h>
 #include <string.h>
 
@@ -24,6 +25,7 @@ int S(){
 int main(){
     char line[1000];
     if(!fgets(line, sizeof line, stdin)) return 0;
+
     line[strcspn(line,"\n")] = 0;
     s = line; pos = 0;
     // To ensure at least one 'a' 'b', we'll require final acceptance and not empty string.

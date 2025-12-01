@@ -1,6 +1,9 @@
 /* Q7: NFA a(b|c)* */
 // a,abcbc valid 
 
+
+
+
 #include <stdio.h>
 #include <string.h>
 

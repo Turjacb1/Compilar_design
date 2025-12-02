@@ -16,12 +16,16 @@ int main() {
     while (getline(cin, s)) 
     
     {
-        for (int i = 0; i < s.size(); i++) 
+        for (int i = 0; i < s.size(); 
+        
+        i++
+    ) 
         
         {
 
             // single-line comment //
-            if (s[i]=='/' && s[i+1]=='/') break;
+            if (s[i]=='/' && s[i+1]=='/') 
+            break;
 
             // multi-line comment /* ... */
             if (s[i]=='/' && s[i+1]=='*') 

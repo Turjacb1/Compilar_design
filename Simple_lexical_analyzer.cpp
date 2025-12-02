@@ -22,7 +22,11 @@ int main() {
     while (i < s.size()) 
     {
 
-        if (isspace(s[i])) { i++; continue; 
+        if (isspace(s[i])) 
+        { 
+            
+            i++; 
+            continue; 
         
         }
 
@@ -39,6 +43,7 @@ int main() {
             while (isdigit(s[i])) tok += s[i++];
             cout << "NUMBER: " << tok << "\n";
         }
+        
         else 
         {
             cout << "SYMBOL: " << s[i++] << "\n";

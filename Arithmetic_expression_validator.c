@@ -34,7 +34,8 @@ char lexeme[256];
 
 void nextToken()
 {
-    while(isspace((unsigned char)buf[idx])) idx++;
+    while(isspace((unsigned char)buf[idx])) 
+    idx++;
     int i=0;
     char c = buf[idx];
     if(c=='\0')

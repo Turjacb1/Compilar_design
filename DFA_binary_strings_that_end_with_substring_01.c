@@ -10,10 +10,12 @@ int main(void)
 {
     char s[10001];
     scanf("%s", s);
-    
+
     int n = strlen(s);
 
-    if (n < 2) { puts("Rejected"); 
+    if (n < 2) 
+    { 
+        puts("Rejected"); 
         return 0; 
     }
     puts( s[n-2]=='0' && s[n-1]=='1' ? "Accepted" : "Rejected");
